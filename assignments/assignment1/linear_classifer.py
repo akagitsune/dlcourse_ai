@@ -15,6 +15,11 @@ def softmax(predictions):
     '''
     # TODO implement softmax
     # Your final implementation shouldn't have any loops
+    predcopy = np.copy(predictions)
+    predcopy -= predcopy.max()
+    probs = np.exp(predcopy) / np.sum(np.exp(predcopy))
+    return probs
+    
     raise Exception("Not implemented!")
 
 
@@ -33,6 +38,9 @@ def cross_entropy_loss(probs, target_index):
     '''
     # TODO implement cross-entropy
     # Your final implementation shouldn't have any loops
+    loss = -np.log(probs[target_index])
+    print(probs)
+    return loss
     raise Exception("Not implemented!")
 
 
